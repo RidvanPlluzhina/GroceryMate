@@ -7,8 +7,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.BioProductScreen
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.DrinksScreen
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.HomeScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.MilkProductScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.SweetsScreen
 
 
 class MainActivity : ComponentActivity() {
@@ -19,6 +22,12 @@ class MainActivity : ComponentActivity() {
             NavHost(navController = navController, startDestination = "home") {
                 composable("home") { HomeScreen(navController) }
                 composable("drinks") { DrinksScreen() }
+                composable("bio products") { BioProductScreen() }
+                composable("milk products") { MilkProductScreen() }
+                composable("sweets") { SweetsScreen() }
+
+
+
             }
         }
     }
