@@ -19,7 +19,11 @@ class ProductViewModel : ViewModel() {
             for (barcode in barcodes) {
                 try {
                     val response = RetrofitInstance.api.getProductByBarcode(barcode)
-                    response.product?.let { fetchedProducts.add(it) }
+                    response.product?.let { product ->
+                        println("Fetched product: $product")
+                        println("Full API response: $response")
+                        fetchedProducts.add(product)
+                    }
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }

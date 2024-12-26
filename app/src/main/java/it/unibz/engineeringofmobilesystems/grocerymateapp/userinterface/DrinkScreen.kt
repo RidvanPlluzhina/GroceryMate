@@ -19,7 +19,7 @@ fun DrinksScreen(viewModel: ProductViewModel = viewModel()) {
     // Fetch products when the screen loads
     LaunchedEffect(Unit) {
         viewModel.fetchProductsByBarcodes(
-            listOf("3274080005003", "5449000133328", "3274080005003", "5449000120960", "4060800104045") // Cristaline Water and Coca-Cola barcodes
+            listOf("3274080005003", "5449000133328", "0049000042566", "5449000120960", "4060800104045")
         )
     }
 
@@ -31,3 +31,5 @@ fun DrinksScreen(viewModel: ProductViewModel = viewModel()) {
         }
     }
 }
+
+
