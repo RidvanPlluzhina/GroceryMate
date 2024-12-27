@@ -13,14 +13,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun MilkProductScreen(viewModel: ProductViewModel = viewModel()) {
+fun SnackProductScreen(viewModel: ProductViewModel = viewModel()) {
     val products by viewModel.products.collectAsState()
 
     // Fetch products when the screen loads
     LaunchedEffect(Unit) {
         viewModel.fetchProductsByBarcodes(
-            listOf("20266394", "3033490004743", "3023260030928", "3073781192186", "8003170060104","5411188134985","5201037709774","245413451804",
-                "3256223377406","7622210103673","2006050106639") // Cristaline Water and Coca-Cola barcodes
+            listOf("8008417001063","5449000131805", "5449000006004","90162800","4060800104045")
         )
     }
 
@@ -32,3 +31,5 @@ fun MilkProductScreen(viewModel: ProductViewModel = viewModel()) {
         }
     }
 }
+
+

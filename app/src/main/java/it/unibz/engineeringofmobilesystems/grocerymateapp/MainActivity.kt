@@ -11,6 +11,7 @@ import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.BioProdu
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.DrinksScreen
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.HomeScreen
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.MilkProductScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.SnackProductScreen
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.SweetsScreen
 
 
@@ -25,6 +26,7 @@ class MainActivity : ComponentActivity() {
                 composable("bio products") { BioProductScreen() }
                 composable("milk products") { MilkProductScreen() }
                 composable("sweets") { SweetsScreen() }
+                composable("snacks") {SnackProductScreen()}
 
 
 
