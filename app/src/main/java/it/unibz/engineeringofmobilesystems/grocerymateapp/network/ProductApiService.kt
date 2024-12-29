@@ -1,6 +1,5 @@
 package it.unibz.engineeringofmobilesystems.grocerymateapp.network
 
-import it.unibz.engineeringofmobilesystems.grocerymateapp.model.FoodResponse
 import it.unibz.engineeringofmobilesystems.grocerymateapp.model.Product
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

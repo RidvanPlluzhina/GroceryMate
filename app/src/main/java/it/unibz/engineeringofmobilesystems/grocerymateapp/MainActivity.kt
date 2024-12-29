@@ -3,6 +3,7 @@ package it.unibz.engineeringofmobilesystems.grocerymateapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -16,6 +17,7 @@ import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.HomeScre
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.MilkProductScreen
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.SnackProductScreen
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.SweetsScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ProductViewModel
 
 
 class MainActivity : ComponentActivity() {
@@ -23,18 +25,17 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController: NavHostController = rememberNavController()
+            val viewModel: ProductViewModel = viewModel()
             NavHost(navController = navController, startDestination = "home") {
                 composable("home") { HomeScreen(navController) }
-                composable("drinks") { DrinksScreen() }
-                composable("bio products") { BioProductScreen() }
-                composable("milk products") { MilkProductScreen() }
-                composable("sweets") { SweetsScreen() }
-                composable("snacks") {SnackProductScreen()}
-                composable("cart") { CartScreen() }
-                composable("favourites") { FavouritesScreen() }
-                composable("counter") { CounterScreen() }
-
-
+                composable("drinks") { DrinksScreen(viewModel, navController) }
+                composable("bio products") { BioProductScreen(viewModel, navController) }
+                composable("milk products") { MilkProductScreen(viewModel, navController) }
+                composable("sweets") { SweetsScreen(viewModel, navController) }
+                composable("snacks") {SnackProductScreen(viewModel, navController)}
+                composable("cart") { CartScreen(viewModel, navController) }
+                composable("favourites") { FavouritesScreen(viewModel, navController) }
+                composable("counter") { CounterScreen(viewModel, navController) }
 
             }
         }

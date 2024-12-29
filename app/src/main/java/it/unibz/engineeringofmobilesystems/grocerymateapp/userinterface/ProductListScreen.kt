@@ -3,6 +3,7 @@ package it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -16,10 +17,11 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import it.unibz.engineeringofmobilesystems.grocerymateapp.model.Product
 import it.unibz.engineeringofmobilesystems.grocerymateapp.R
+import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ProductViewModel
 
 
 @Composable
-fun ProductDetails(product: Product) {
+fun ProductDetails(product: Product, viewModel: ProductViewModel) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -28,14 +30,13 @@ fun ProductDetails(product: Product) {
             .background(Color.White)
             .border(width = 4.dp, color = Color.Black),
         contentAlignment = Alignment.Center
-    )
-    {
+    ) {
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(16.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly,
@@ -44,12 +45,22 @@ fun ProductDetails(product: Product) {
                 Image(
                     painter = painterResource(id = R.drawable.cart),
                     contentDescription = "Add to Cart",
-                    modifier = Modifier.size(25.dp)
+                    modifier = Modifier
+                        .size(40.dp)
+                        .clickable {
+                            viewModel
+                                .addToCart(product)
+                        }
                 )
                 Image(
                     painter = painterResource(id = R.drawable.heart),
                     contentDescription = "Add to Favorites",
-                    modifier = Modifier.size(25.dp)
+                    modifier = Modifier
+                        .size(40.dp)
+                        .clickable {
+
+                            viewModel.addToFav(product)
+                        }
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
@@ -65,23 +76,23 @@ fun ProductDetails(product: Product) {
             Text(
                 text = "Name: ${product.product_name}",
                 fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-                fontSize = 20.sp // Adjust the size as needed
+                fontSize = 20.sp
             )
             Text(
                 text = "Quantity: ${product.quantity}",
                 fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-                fontSize = 16.sp // Adjust the size as needed
+                fontSize = 16.sp
             )
             Text(
                 text = "Brand: ${product.brands}",
                 fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-                fontSize = 16.sp // Adjust the size as needed
-            )
-            Text(
-                text = "Energy (kcal): ${product.nutriments?.energy_kcal_value ?: "Not Available"}",
-                fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
                 fontSize = 16.sp
             )
+//            Text(
+//                text = "Energy (kcal): ${product.nutriments?.energy_kcal_value ?: "Not Available"}",
+//                fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
+//                fontSize = 16.sp
+//            )
         }
     }
 }

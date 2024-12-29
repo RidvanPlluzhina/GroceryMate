@@ -11,23 +11,42 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavController
+import androidx.compose.foundation.background
+
 
 @Composable
-fun SweetsScreen(viewModel: ProductViewModel = viewModel()) {
+fun SweetsScreen(viewModel: ProductViewModel = viewModel(), navController: NavController) {
     val products by viewModel.products.collectAsState()
 
-    // Fetch products when the screen loads
     LaunchedEffect(Unit) {
         viewModel.fetchProductsByBarcodes(
-            listOf("3274080005003", "5449000133328", "3274080005003", "5449000120960", "4060800104045") // Cristaline Water and Coca-Cola barcodes
+            listOf("3274080005003", "5449000133328", "3274080005003", "5449000120960", "4060800104045")
         )
     }
 
-    // Display products in a scrollable list
-    LazyColumn(modifier = Modifier.fillMaxSize().padding(16.dp)) {
-        items(products) { product ->
-            ProductDetails(product)
-            Spacer(modifier = Modifier.height(16.dp))
+    Box(modifier = Modifier.fillMaxSize()) {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(bottom = 56.dp)
+        ) {
+            items(products) { product ->
+                ProductDetails(product, viewModel)
+                Spacer(modifier = Modifier.height(16.dp))
+            }
+        }
+
+        // Bottom Navigation Bar
+        Box(
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .background(Color(0xFF003DA5))
+        ) {
+            BottomNavigationBar(navController = navController)
         }
     }
 }
+

@@ -96,11 +96,11 @@ fun BottomNavigationBar(navController: NavController) {
             .padding(vertical = 8.dp),
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
-//        BottomNavigationItem(
-//            iconRes = R.drawable.location,
-//            label = "Home",
-//            onClick = { navController.navigate("home") }
-//        )
+        BottomNavigationItem(
+            iconRes = R.drawable.home,
+            label = "Home",
+            onClick = { navController.navigate("home") }
+        )
         BottomNavigationItem(
             iconRes = R.drawable.cart,
             label = "Cart",

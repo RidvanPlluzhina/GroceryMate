@@ -6,12 +6,14 @@ data class FoodResponse(
     val products: List<Product>
 )
 
+// https://world.openfoodfacts.org/api/v0/product/{barcode here}.json
+
 data class Product(
     val product_name: String,
     val image_url: String?,
     val quantity: String?,
     val brands: String?,
-    val nutriments: Nutriments? // Add this field for energy_100g
+    val nutriments: Nutriments?
 )
 
 // Declared energy_kcal_value as part of nutriments
