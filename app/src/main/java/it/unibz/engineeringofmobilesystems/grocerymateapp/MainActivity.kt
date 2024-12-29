@@ -8,7 +8,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.BioProductScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.CartScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.CounterScreen
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.DrinksScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.FavouritesScreen
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.HomeScreen
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.MilkProductScreen
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.SnackProductScreen
@@ -27,6 +30,9 @@ class MainActivity : ComponentActivity() {
                 composable("milk products") { MilkProductScreen() }
                 composable("sweets") { SweetsScreen() }
                 composable("snacks") {SnackProductScreen()}
+                composable("cart") { CartScreen() }
+                composable("favourites") { FavouritesScreen() }
+                composable("counter") { CounterScreen() }
 
 
 

@@ -22,7 +22,7 @@ import it.unibz.engineeringofmobilesystems.grocerymateapp.R
 fun HomeScreen(navController: NavController) {
     val categories = listOf(
         Pair("Drinks", R.drawable.drinks1),
-        Pair("Snacks", R.drawable.snack),
+        Pair("Snacks", R.drawable.snacks121),
         Pair("Sweets", R.drawable.sweets),
         Pair("Milk Products", R.drawable.milk),
         Pair("Bio Products", R.drawable.bio),
@@ -104,17 +104,17 @@ fun BottomNavigationBar(navController: NavController) {
         BottomNavigationItem(
             iconRes = R.drawable.cart,
             label = "Cart",
-            onClick = { /* navigate later */ }
+            onClick = { navController.navigate("cart") }
         )
         BottomNavigationItem(
             iconRes = R.drawable.heart,
             label = "Favourites",
-            onClick = { /* navigate later */ }
+            onClick = { navController.navigate("favourites") }
         )
         BottomNavigationItem(
             iconRes = R.drawable.counter,
             label = "Counter",
-            onClick = { /* navigate later */ }
+            onClick = { navController.navigate("counter") }
         )
     }
 }

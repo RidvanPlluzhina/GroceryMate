@@ -1,5 +1,6 @@
 package it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -10,9 +11,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import it.unibz.engineeringofmobilesystems.grocerymateapp.model.Product
+import it.unibz.engineeringofmobilesystems.grocerymateapp.R
+
 
 @Composable
 fun ProductDetails(product: Product) {
@@ -20,16 +24,36 @@ fun ProductDetails(product: Product) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp)
-            .height(250.dp)
+            .height(300.dp)
             .background(Color.White)
             .border(width = 4.dp, color = Color.Black),
         contentAlignment = Alignment.Center
-    ) {
+    )
+    {
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Spacer(modifier = Modifier.height(10.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.cart),
+                    contentDescription = "Add to Cart",
+                    modifier = Modifier.size(25.dp)
+                )
+                Image(
+                    painter = painterResource(id = R.drawable.heart),
+                    contentDescription = "Add to Favorites",
+                    modifier = Modifier.size(25.dp)
+                )
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+
             AsyncImage(
                 model = product.image_url,
                 contentDescription = product.product_name,
@@ -65,14 +89,4 @@ fun ProductDetails(product: Product) {
 
 
 
-//                Image(
-//                    painter = painterResource(id = R.drawable.trolley),
-//                    contentDescription = "Add to Cart",
-//                    modifier = Modifier.size(20.dp)
-//                )
-//                Spacer(modifier = Modifier.width(50.dp))
-//                Image(
-//                    painter = painterResource(id = R.drawable.heart),
-//                    contentDescription = "Add to Favorites",
-//                    modifier = Modifier.size(20.dp)
-//                )
+
