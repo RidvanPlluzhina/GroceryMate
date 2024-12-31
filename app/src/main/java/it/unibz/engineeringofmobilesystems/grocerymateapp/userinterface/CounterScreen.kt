@@ -47,7 +47,7 @@ fun CounterScreen(viewModel: ProductViewModel, navController: NavController) {
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(bottom = 60.dp)
+                    .padding(bottom = 100.dp)
             ) {
                 items(cartItems) { product ->
                     Box(
@@ -63,7 +63,7 @@ fun CounterScreen(viewModel: ProductViewModel, navController: NavController) {
                                 model = product.image_url,
                                 contentDescription = product.product_name,
                                 modifier = Modifier
-                                    .size(100.dp)
+                                    .size(150.dp)
                                     .padding(end = 16.dp),
                                 contentScale = ContentScale.Fit
                             )
@@ -77,6 +77,21 @@ fun CounterScreen(viewModel: ProductViewModel, navController: NavController) {
                                 )
                                 Text(
                                     text = "Kcal: ${product.nutriments?.energy_kcal_value ?: "Not Available"}",
+                                    fontSize = 16.sp,
+                                    color = Color.Gray
+                                )
+                                Text(
+                                    text = "Fat: ${product.nutriments?.fat_100g ?: "Not Available"}",
+                                    fontSize = 16.sp,
+                                    color = Color.Gray
+                                )
+                                Text(
+                                    text = "Sugar: ${product.nutriments?.sugars_100g?: "Not Available"}",
+                                    fontSize = 16.sp,
+                                    color = Color.Gray
+                                )
+                                Text(
+                                    text = "Protein: ${product.nutriments?.proteins_value ?: "Not Available"}",
                                     fontSize = 16.sp,
                                     color = Color.Gray
                                 )

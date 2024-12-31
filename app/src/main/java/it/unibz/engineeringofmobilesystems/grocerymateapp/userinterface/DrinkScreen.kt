@@ -28,12 +28,11 @@ fun DrinksScreen(viewModel: ProductViewModel = viewModel(), navController: NavCo
     }
 
     Box(modifier = Modifier
-        .fillMaxSize()
-        .padding(3.dp)) {
+        .fillMaxSize()) {
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(bottom = 56.dp)
+                .padding(bottom = 100.dp)
         ) {
             items(products) { product ->
                 ProductDetails(product, viewModel)

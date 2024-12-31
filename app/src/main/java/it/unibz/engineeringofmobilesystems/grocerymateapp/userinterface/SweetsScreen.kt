@@ -23,7 +23,7 @@ fun SweetsScreen(viewModel: ProductViewModel = viewModel(), navController: NavCo
 
     LaunchedEffect(Unit) {
         viewModel.fetchProductsByBarcodes(
-            listOf("3274080005003", "5449000133328", "3274080005003", "5449000120960", "4060800104045")
+            listOf()
         )
     }
 
@@ -31,7 +31,7 @@ fun SweetsScreen(viewModel: ProductViewModel = viewModel(), navController: NavCo
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(bottom = 56.dp)
+                .padding(bottom = 100.dp)
         ) {
             items(products) { product ->
                 ProductDetails(product, viewModel)

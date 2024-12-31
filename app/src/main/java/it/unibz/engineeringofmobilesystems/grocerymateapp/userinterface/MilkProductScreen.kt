@@ -25,9 +25,26 @@ fun MilkProductScreen(viewModel: ProductViewModel = viewModel(), navController: 
     LaunchedEffect(Unit) {
         viewModel.fetchProductsByBarcodes(
             listOf(
-                "20266394", "3033490004743", "3023260030928", "3073781192186",
-                "8003170060104", "5411188134985", "5201037709774", "245413451804",
-                "3256223377406", "7622210103673", "2006050106639"
+                "9300633765705",
+                "5701638142081",
+                "8850393801096",
+                "0078742352015",
+                "5287000064019",
+                "6001008784712",
+                "5411188115670",
+                "7613035315613",
+                "3228857000856",
+                "9415007060012",
+                "742365004119",
+                "7394376616115",
+                "41570056344",
+                "25293600211",
+                "8425324000216",
+                "744473912002",
+                "018944000060",
+                "5060107120012",
+                "7310861000013",
+                "6408432000012"
             )
         )
     }
@@ -38,7 +55,7 @@ fun MilkProductScreen(viewModel: ProductViewModel = viewModel(), navController: 
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(bottom = 56.dp)
+                .padding(bottom = 100.dp)
         ) {
             items(products) { product ->
                 ProductDetails(product, viewModel)

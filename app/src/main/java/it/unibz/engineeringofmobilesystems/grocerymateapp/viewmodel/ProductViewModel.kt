@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
+
 class ProductViewModel : ViewModel() {
     private val _products = MutableStateFlow<List<Product>>(emptyList())
     val products: StateFlow<List<Product>> = _products
@@ -26,6 +27,14 @@ class ProductViewModel : ViewModel() {
 
     fun addToFav(product: Product) {
         _favoritesItems.value = _favoritesItems.value + product
+    }
+
+    fun removeFromCart(product: Product) {
+        _cartItems.value = _cartItems.value.filter { it != product }
+    }
+
+    fun removeFromFavourites (product: Product) {
+        _favoritesItems.value = _favoritesItems.value.filter  {it != product}
     }
 
     // Fetch products by their barcode

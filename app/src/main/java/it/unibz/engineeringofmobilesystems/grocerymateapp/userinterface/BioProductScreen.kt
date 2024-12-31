@@ -23,7 +23,7 @@ fun BioProductScreen(viewModel: ProductViewModel = viewModel(), navController: N
 
     LaunchedEffect(Unit) {
         viewModel.fetchProductsByBarcodes(
-            listOf("3274080005003", "5449000133328", "3274080005003", "5449000120960", "4060800104045")
+            listOf()
         )
     }
 

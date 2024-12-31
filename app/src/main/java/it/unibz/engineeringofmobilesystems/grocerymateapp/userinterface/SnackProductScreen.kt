@@ -23,7 +23,7 @@ fun SnackProductScreen(viewModel: ProductViewModel = viewModel(), navController:
 
     LaunchedEffect(Unit) {
         viewModel.fetchProductsByBarcodes(
-            listOf("8008417001063", "5449000131805", "5449000006004", "90162800", "4060800104045")
+            listOf()
         )
     }
 
@@ -31,7 +31,7 @@ fun SnackProductScreen(viewModel: ProductViewModel = viewModel(), navController:
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(bottom = 56.dp)
+                .padding(bottom = 100.dp)
         ) {
             items(products) { product ->
                 ProductDetails(product, viewModel)
