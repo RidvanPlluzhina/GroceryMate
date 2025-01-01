@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.background
+import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -23,7 +24,9 @@ fun DrinksScreen(viewModel: ProductViewModel = viewModel(), navController: NavCo
     // Fetch products when the screen loads
     LaunchedEffect(Unit) {
         viewModel.fetchProductsByBarcodes(
-            listOf("8008417001063", "5449000131805", "5449000006004", "90162800", "4060800104045")
+            listOf( "3274080005003","7613035833272","8002270014901", "3179732333919","5060337501316", "9002490205973", "90162800"
+                ,"3502110000651","54491069","5449000286291","3289196100016"
+                ,"8480000392190","5054267003378","3502110004000","3124480001429")
         )
     }
 
@@ -50,3 +53,5 @@ fun DrinksScreen(viewModel: ProductViewModel = viewModel(), navController: NavCo
         }
     }
 }
+
+

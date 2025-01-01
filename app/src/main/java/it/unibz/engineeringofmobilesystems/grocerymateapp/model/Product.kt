@@ -18,9 +18,9 @@ data class Product(
 
 // Declared energy_kcal_value as part of nutriments
 data class Nutriments(
-    @SerializedName("energy-kcal_value") val energy_kcal_value: Int?,
-    val fat_100g: Int?,
-    val sugars_100g: Int?,
-    val proteins_value: Int?
+    @SerializedName("energy-kcal_value") val energy_kcal_value: Float?,
+    val fat_100g: Float?,
+    val sugars_100g: Float?,
+    val proteins_value: Float?
 )
 

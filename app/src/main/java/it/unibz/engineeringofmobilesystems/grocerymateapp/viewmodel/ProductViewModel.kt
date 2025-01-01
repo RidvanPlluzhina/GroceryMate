@@ -44,17 +44,23 @@ class ProductViewModel : ViewModel() {
             for (barcode in barcodes) {
                 try {
                     val response = RetrofitInstance.api.getProductByBarcode(barcode)
-                    response.product?.let { product ->
-                        println("Fetched product: $product")
-                        println("Full API response: $response")
-                        fetchedProducts.add(product)
+                    if (response.product != null) {
+                        fetchedProducts.add(response.product)
+                    } else {
+                        println("No product found for barcode: $barcode")
                     }
                 } catch (e: Exception) {
-                    e.printStackTrace()
+                    println("Error fetching product for barcode: $barcode - ${e.message}")
                 }
             }
-            _products.value = fetchedProducts
+            // Update the products state flow
+            if (fetchedProducts.isNotEmpty()) {
+                _products.value = fetchedProducts
+            } else {
+                println("No products fetched.")
+            }
         }
     }
+
 }
 

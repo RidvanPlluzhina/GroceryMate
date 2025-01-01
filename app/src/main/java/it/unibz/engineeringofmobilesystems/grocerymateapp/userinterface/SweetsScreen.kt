@@ -23,7 +23,8 @@ fun SweetsScreen(viewModel: ProductViewModel = viewModel(), navController: NavCo
 
     LaunchedEffect(Unit) {
         viewModel.fetchProductsByBarcodes(
-            listOf()
+            listOf( "7613035833272","8002270014901", "3179732333919", "9002490205973", "90162800"
+                ,"3502110000651","54491069","5449000286291")
         )
     }
 

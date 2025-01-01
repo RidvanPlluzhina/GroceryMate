@@ -69,7 +69,7 @@ fun ProductDetails(product: Product, viewModel: ProductViewModel) {
                 model = product.image_url,
                 contentDescription = product.product_name,
                 modifier = Modifier
-                    .size(150.dp)
+                    .size(170.dp)
                     .padding(bottom = 18.dp),
                 contentScale = ContentScale.Fit
             )
@@ -83,11 +83,11 @@ fun ProductDetails(product: Product, viewModel: ProductViewModel) {
                 fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
                 fontSize = 16.sp
             )
-            Text(
-                text = "Brand: ${product.brands}",
-                fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-                fontSize = 16.sp
-            )
+//            Text(
+//                text = "Brand: ${product.brands}",
+//                fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
+//                fontSize = 16.sp
+//            )
 //            Text(
 //                text = "Energy (kcal): ${product.nutriments?.energy_kcal_value ?: "Not Available"}",
 //                fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,

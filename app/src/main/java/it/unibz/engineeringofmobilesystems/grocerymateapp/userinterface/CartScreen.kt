@@ -68,7 +68,7 @@ fun CartScreen(viewModel: ProductViewModel, navController: NavController) {
                                 model = product.image_url,
                                 contentDescription = product.product_name,
                                 modifier = Modifier
-                                    .size(100.dp)
+                                    .size(140.dp)
                                     .padding(end = 16.dp),
                                 contentScale = ContentScale.Fit
                             )
