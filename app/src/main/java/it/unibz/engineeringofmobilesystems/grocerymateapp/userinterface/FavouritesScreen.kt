@@ -79,6 +79,19 @@ fun FavouritesScreen(viewModel: ProductViewModel, navController: NavController) 
                                 modifier = Modifier.weight(1f) // Push the "Remove" icon to the end
                             )
 
+                            // add to cart icon
+                            androidx.compose.material3.Icon(
+                                painter = painterResource(id = R.drawable.cart),
+                                contentDescription = "Add to cart",
+                                modifier = Modifier
+                                    .size(24.dp)
+                                    .weight(1f)
+                                    .clickable {
+                                        viewModel.addToCart(product)
+                                    },
+                                tint = Color.Black
+                            )
+
                             // Remove Icon
                             androidx.compose.material3.Icon(
                                 painter = painterResource(id = R.drawable.remove),

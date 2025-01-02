@@ -30,12 +30,24 @@ class ProductViewModel : ViewModel() {
     }
 
     fun removeFromCart(product: Product) {
-        _cartItems.value = _cartItems.value.filter { it != product }
+        _cartItems.value = _cartItems.value.toMutableList().apply {
+            val index = indexOfFirst { it.product_name == product.product_name }
+            if (index != -1) removeAt(index)
+        }
     }
 
-    fun removeFromFavourites (product: Product) {
-        _favoritesItems.value = _favoritesItems.value.filter  {it != product}
+
+    fun removeFromFavourites(product: Product) {
+        _favoritesItems.value = _favoritesItems.value.toMutableList().apply {
+            val index = indexOfFirst { it.product_name == product.product_name }
+            if (index != -1) removeAt(index)
+        }
     }
+
+//    fun addToCart2(product: Product) {
+//        _cartItems.value = _cartItems.value + product
+//        _favoritesItems.value = _favoritesItems.value.filter  {it != product}
+//    }
 
     // Fetch products by their barcode
     fun fetchProductsByBarcodes(barcodes: List<String>) {

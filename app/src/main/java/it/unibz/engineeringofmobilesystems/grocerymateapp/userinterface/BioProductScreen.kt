@@ -23,8 +23,8 @@ fun BioProductScreen(viewModel: ProductViewModel = viewModel(), navController: N
 
     LaunchedEffect(Unit) {
         viewModel.fetchProductsByBarcodes(
-            listOf( "7613035833272","8002270014901", "3179732333919", "9002490205973", "90162800"
-                ,"3502110000651","54491069","5449000286291")
+            listOf("3760020507350","3155250358788","4056489041313","3278699005010","3229820797861"
+                ,"3245413451804","3560071232719","3229820159768","3270190128533","3259810012599")
         )
     }
 
@@ -36,7 +36,7 @@ fun BioProductScreen(viewModel: ProductViewModel = viewModel(), navController: N
         ) {
             items(products) { product ->
                 ProductDetails(product, viewModel)
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(30.dp))
             }
         }
 

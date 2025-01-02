@@ -74,9 +74,9 @@ fun ProductDetails(product: Product, viewModel: ProductViewModel) {
                 contentScale = ContentScale.Fit
             )
             Text(
-                text = "Name: ${product.product_name}",
+                text = "${product.product_name}",
                 fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-                fontSize = 20.sp
+                fontSize = 25.sp
             )
             Text(
                 text = "Quantity: ${product.quantity}",
