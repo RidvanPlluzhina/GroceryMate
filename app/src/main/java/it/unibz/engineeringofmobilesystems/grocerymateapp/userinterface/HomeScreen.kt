@@ -39,7 +39,8 @@ fun HomeScreen(navController: NavController) {
                 .padding(bottom = 100.dp),
             verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
-            HeaderBar(title = "YOUR GROCERY MATE")
+            HeaderBar(title = "YOUR GROCERY MATE", navController = navController)
+
 
             categories.forEach { category ->
                 CategoryCard(
@@ -62,7 +63,7 @@ fun HomeScreen(navController: NavController) {
 }
 
 @Composable
-fun HeaderBar(title: String) {
+fun HeaderBar(title: String, navController: NavController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -71,22 +72,18 @@ fun HeaderBar(title: String) {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-        // Title
-        Text(
-            text = title,
-            color = Color.White,
-            fontSize = 25.sp
-        )
-
-        // Location Icon
-        Icon(
-            painter = painterResource(id = R.drawable.location),
-            contentDescription = "Location Icon",
-            tint = Color.White,
-            modifier = Modifier.size(30.dp)
-        )
+        Text(text = title, color = Color.White, fontSize = 25.sp)
+//        Icon(
+//            painter = painterResource(id = R.drawable.review),
+//            contentDescription = "Location Icon",
+//            tint = Color.White,
+//            modifier = Modifier.size(30.dp).clickable {
+//                navController.navigate("reviews")
+//          }
+//       )
     }
 }
+
 
 @Composable
 fun BottomNavigationBar(navController: NavController) {
@@ -115,6 +112,11 @@ fun BottomNavigationBar(navController: NavController) {
             iconRes = R.drawable.track,
             label = "Counter",
             onClick = { navController.navigate("counter") }
+        )
+        BottomNavigationItem(
+            iconRes = R.drawable.like,
+            label = "Review",
+            onClick = { navController.navigate("reviews") }
         )
     }
 }

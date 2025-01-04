@@ -25,7 +25,7 @@ fun MilkProductScreen(viewModel: ProductViewModel = viewModel(), navController: 
     LaunchedEffect(Unit) {
         viewModel.fetchProductsByBarcodes(
             listOf("8002670500516","8002580010822","3033490004743","20266394","3596710015870","5010578008068","7610900292790","8034066307317"
-            ,"5036589200970","8436547770137","3256223377406","2006050106639")
+            ,"5036589200970","8436547770137","3256223377406")
         )
     }
 
