@@ -1,9 +1,8 @@
-package it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface
+package it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.reviews
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.*
@@ -15,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import it.unibz.engineeringofmobilesystems.grocerymateapp.model.Review
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.BottomNavigationBar
 import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ReviewViewModel
 
 @Composable

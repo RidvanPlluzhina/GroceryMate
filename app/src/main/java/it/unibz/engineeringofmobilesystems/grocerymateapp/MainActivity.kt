@@ -10,8 +10,18 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
-import it.unibz.engineeringofmobilesystems.grocerymateapp.model.ReviewDatabase
+import it.unibz.engineeringofmobilesystems.grocerymateapp.model.data.ReviewDatabase
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.*
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.cart.CartScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.cart.CounterScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.cart.FavouritesScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.products.BioProductScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.products.DrinksScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.products.MilkProductScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.products.SnackProductScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.products.SweetsScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.reviews.AddReviewScreen
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.reviews.ReviewsScreen
 import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ReviewViewModel
 import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ProductViewModel
 

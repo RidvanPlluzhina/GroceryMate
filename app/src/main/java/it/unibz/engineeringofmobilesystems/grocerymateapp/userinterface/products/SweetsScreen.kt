@@ -1,4 +1,4 @@
-package it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface
+package it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.products
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -15,6 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import androidx.compose.foundation.background
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.BottomNavigationBar
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.ProductDetails
 
 
 @Composable

@@ -1,9 +1,10 @@
-package it.unibz.engineeringofmobilesystems.grocerymateapp.model
+package it.unibz.engineeringofmobilesystems.grocerymateapp.model.data
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
+import it.unibz.engineeringofmobilesystems.grocerymateapp.model.Review
 import kotlinx.coroutines.flow.Flow
 
 @Dao

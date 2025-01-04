@@ -1,4 +1,4 @@
-package it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface
+package it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.cart
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -23,6 +23,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.BottomNavigationBar
 import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ProductViewModel
 
 @Composable

@@ -1,4 +1,4 @@
-package it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface
+package it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.reviews
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -10,6 +10,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import it.unibz.engineeringofmobilesystems.grocerymateapp.model.Review
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.BottomNavigationBar
 import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ReviewViewModel
 
 @Composable

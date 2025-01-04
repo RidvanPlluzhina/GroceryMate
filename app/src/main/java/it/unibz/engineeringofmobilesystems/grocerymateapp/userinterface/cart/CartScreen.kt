@@ -1,4 +1,4 @@
-package it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface
+package it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.cart
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -25,32 +25,34 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import it.unibz.engineeringofmobilesystems.grocerymateapp.R
+import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.BottomNavigationBar
 import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ProductViewModel
 
 @Composable
-fun FavouritesScreen(viewModel: ProductViewModel, navController: NavController) {
-    val favoritesItems = viewModel.favoritesItems.collectAsState().value
+fun CartScreen(viewModel: ProductViewModel, navController: NavController) {
+    val cartItems = viewModel.cartItems.collectAsState().value
 
     Box(modifier = Modifier.fillMaxSize()) {
-        if (favoritesItems.isEmpty()) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "Your favorites list is empty",
-                    fontSize = 24.sp,
-                    textAlign = TextAlign.Center
-                )
-            }
-        } else {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(bottom = 100.dp)
-            ) {
-                items(favoritesItems) { product ->
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(bottom = 100.dp)
+        ) {
+            if (cartItems.isEmpty()) {
+                item {
+                    Box(
+                        modifier = Modifier.fillParentMaxSize(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "Your cart is empty",
+                            fontSize = 24.sp,
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                }
+            } else {
+                items(cartItems) { product ->
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -76,20 +78,7 @@ fun FavouritesScreen(viewModel: ProductViewModel, navController: NavController) 
                             Text(
                                 text = product.product_name,
                                 fontSize = 20.sp,
-                                modifier = Modifier.weight(1f) // Push the "Remove" icon to the end
-                            )
-
-                            // add to cart icon
-                            androidx.compose.material3.Icon(
-                                painter = painterResource(id = R.drawable.cart),
-                                contentDescription = "Add to cart",
-                                modifier = Modifier
-                                    .size(24.dp)
-                                    .weight(1f)
-                                    .clickable {
-                                        viewModel.addToCart(product)
-                                    },
-                                tint = Color.Black
+                                modifier = Modifier.weight(1f) // this one to push the remove icon to the end
                             )
 
                             // Remove Icon
@@ -99,7 +88,7 @@ fun FavouritesScreen(viewModel: ProductViewModel, navController: NavController) 
                                 modifier = Modifier
                                     .size(24.dp)
                                     .clickable {
-                                        viewModel.removeFromFavourites(product)
+                                        viewModel.removeFromCart(product)
                                     },
                                 tint = Color.Red
                             )
@@ -119,5 +108,7 @@ fun FavouritesScreen(viewModel: ProductViewModel, navController: NavController) 
         }
     }
 }
+
+
 
 

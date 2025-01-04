@@ -3,7 +3,7 @@ package it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import it.unibz.engineeringofmobilesystems.grocerymateapp.model.Review
-import it.unibz.engineeringofmobilesystems.grocerymateapp.model.ReviewDao
+import it.unibz.engineeringofmobilesystems.grocerymateapp.model.data.ReviewDao
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
