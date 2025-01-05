@@ -67,9 +67,7 @@ fun ReviewItem(review: Review, onRemove: () -> Unit) {
             .padding(16.dp)
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(end = 40.dp)
+            modifier = Modifier.fillMaxWidth().padding(end = 40.dp)
         ) {
             Text(
                 text = "Title: ${review.title}",
@@ -82,14 +80,20 @@ fun ReviewItem(review: Review, onRemove: () -> Unit) {
                 fontSize = 20.sp,
                 color = Color.Black
             )
+            Spacer(modifier = Modifier.height(8.dp))
+            Text(
+                text = "Review (0/5): ${review.description2}",
+                fontSize = 20.sp,
+                color = Color.Black
+            )
         }
         IconButton(
             onClick = onRemove,
-            modifier = Modifier
-                .align(Alignment.TopEnd)
+            modifier = Modifier.align(Alignment.TopEnd)
         ) {
             Icon(imageVector = Icons.Default.Delete, contentDescription = "Delete", tint = Color.Red)
         }
     }
 }
+
 

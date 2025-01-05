@@ -17,29 +17,55 @@ import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ReviewViewMo
 fun AddReviewScreen(navController: NavController, viewModel: ReviewViewModel) {
     var title by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
+    var description2 by remember { mutableStateOf(0) }
 
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxHeight()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Spacer(modifier = Modifier.weight(1f))
 
-    Box(modifier = Modifier.fillMaxSize()) {
-        Column(modifier = Modifier.fillMaxSize().padding(16.dp)) {
             TextField(
                 value = title,
                 onValueChange = { title = it },
                 label = { Text("Title") },
-                modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp)
             )
             TextField(
                 value = description,
                 onValueChange = { description = it },
                 label = { Text("Description") },
                 modifier = Modifier
-                    .fillMaxWidth().padding(vertical = 8.dp)
-                    .height(150.dp),
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp)
+                    .height(150.dp)
+            )
+            //Review field with slider here declared
+            Text(
+                text = "Choose a Number (1-5): $description2",
+                modifier = Modifier.padding(vertical = 8.dp)
+            )
+            Slider(
+                value = description2.toFloat(),
+                onValueChange = { description2 = it.toInt() },
+                valueRange = 1f..5f,
+                steps = 3,
+                modifier = Modifier.padding(vertical = 8.dp)
             )
             Button(
                 onClick = {
                     val review = Review(
                         title = title,
                         description = description,
+                        description2 = description2,
                         dateAdded = System.currentTimeMillis()
                     )
                     viewModel.addReview(review)
@@ -47,10 +73,12 @@ fun AddReviewScreen(navController: NavController, viewModel: ReviewViewModel) {
                 },
                 modifier = Modifier.align(Alignment.End),
                 enabled = title.isNotBlank() && description.isNotBlank()
-            )
-            {
+            ) {
                 Text("Publish")
             }
+
+            // Add Spacer to balance the layout below the content
+            Spacer(modifier = Modifier.weight(1f))
         }
 
         // Bottom Navigation Bar
@@ -63,3 +91,5 @@ fun AddReviewScreen(navController: NavController, viewModel: ReviewViewModel) {
         }
     }
 }
+
+

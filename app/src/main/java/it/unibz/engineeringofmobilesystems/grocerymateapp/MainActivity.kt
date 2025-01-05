@@ -32,7 +32,9 @@ class MainActivity : ComponentActivity() {
             applicationContext,
             ReviewDatabase::class.java,
             "review_database"
-        ).build()
+        )
+            .fallbackToDestructiveMigration()
+            .build()
     }
 
     private val reviewViewModel by lazy {

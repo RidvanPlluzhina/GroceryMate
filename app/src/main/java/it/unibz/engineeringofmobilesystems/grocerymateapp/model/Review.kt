@@ -7,6 +7,8 @@ import androidx.room.PrimaryKey
 data class Review(
     val title: String,
     val description: String,
+    val description2: Int,
     val dateAdded: Long,
     @PrimaryKey(autoGenerate = true) val id: Int = 0
 )
+

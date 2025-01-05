@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import it.unibz.engineeringofmobilesystems.grocerymateapp.model.Review
 
-@Database(entities = [Review::class], version = 1, exportSchema = false)
+@Database(entities = [Review::class], version = 3, exportSchema = false)
 abstract class ReviewDatabase : RoomDatabase() {
     abstract fun reviewDao(): ReviewDao
 
@@ -20,7 +20,9 @@ abstract class ReviewDatabase : RoomDatabase() {
                     context.applicationContext,
                     ReviewDatabase::class.java,
                     "review_database"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration()
+                    .build()
                 INSTANCE = instance
                 instance
             }
