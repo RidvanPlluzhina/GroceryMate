@@ -65,7 +65,14 @@ class ProductViewModel(
 
     fun removeFromCart(cartItem: CartItem) {
         viewModelScope.launch {
+            // Remove from cart
             cartItemDao.deleteCartItem(cartItem)
+
+            // Find the corresponding item in the counter and remove it
+            val matchingCounterItem = _counterItems.value.find { it.productName == cartItem.productName }
+            if (matchingCounterItem != null) {
+                removeFromCounter(matchingCounterItem)
+            }
         }
     }
 
@@ -77,6 +84,7 @@ class ProductViewModel(
                 imageUrl = product.image_url,
                 quantity = product.quantity,
                 price = null // if in the future the api will prvide price we have it ready
+
             )
             favoriteItemDao.insertFavoriteItem(favoriteItem)
         }
@@ -102,6 +110,7 @@ class ProductViewModel(
             counterItemDao.insertCounterItem(counterItem)
         }
     }
+
 
     fun removeFromCounter(counterItem: CounterItem) {
         viewModelScope.launch {

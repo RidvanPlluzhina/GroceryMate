@@ -94,6 +94,15 @@ fun FavouritesScreen(viewModel: ProductViewModel, navController: NavController) 
                                                 nutriments = null
                                             )
                                         )
+//                                        viewModel.addToCounter(
+//                                            it.unibz.engineeringofmobilesystems.grocerymateapp.model.Product(
+//                                                product_name = favoriteItem.productName,
+//                                                image_url = favoriteItem.imageUrl,
+//                                                quantity = favoriteItem.quantity,
+//                                                brands = null,
+//                                                nutriments = null
+//                                            )
+//                                        )
                                     },
                                 tint = Color.Black
                             )

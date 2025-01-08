@@ -21,9 +21,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
 import it.unibz.engineeringofmobilesystems.grocerymateapp.R
-import it.unibz.engineeringofmobilesystems.grocerymateapp.model.CartItem
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.BottomNavigationBar
 import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ProductViewModel
+
 
 @Composable
 fun CartScreen(viewModel: ProductViewModel, navController: NavController) {
@@ -103,3 +103,4 @@ fun CartScreen(viewModel: ProductViewModel, navController: NavController) {
         }
     }
 }
+
