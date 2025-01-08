@@ -48,8 +48,8 @@ fun ProductDetails(product: Product, viewModel: ProductViewModel) {
                     modifier = Modifier
                         .size(40.dp)
                         .clickable {
-                            viewModel
-                                .addToCart(product)
+                            viewModel.addToCart(product)
+                            viewModel.addToCounter(product)
                         }
                 )
                 Image(
@@ -58,8 +58,7 @@ fun ProductDetails(product: Product, viewModel: ProductViewModel) {
                     modifier = Modifier
                         .size(40.dp)
                         .clickable {
-
-                            viewModel.addToFav(product)
+                            viewModel.addToFavorites(product)
                         }
                 )
             }

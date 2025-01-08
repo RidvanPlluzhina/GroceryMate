@@ -1,26 +1,20 @@
 package it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.cart
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.sp
-import androidx.compose.material3.Text
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.BottomNavigationBar
@@ -28,10 +22,10 @@ import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ProductViewM
 
 @Composable
 fun CounterScreen(viewModel: ProductViewModel, navController: NavController) {
-    val cartItems = viewModel.cartItems.collectAsState().value
+    val counterItems = viewModel.counterItems.collectAsState().value
 
     Box(modifier = Modifier.fillMaxSize()) {
-        if (cartItems.isEmpty()) {
+        if (counterItems.isEmpty()) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -50,7 +44,7 @@ fun CounterScreen(viewModel: ProductViewModel, navController: NavController) {
                     .fillMaxSize()
                     .padding(bottom = 100.dp)
             ) {
-                items(cartItems) { product ->
+                items(counterItems) { item ->
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -61,38 +55,38 @@ fun CounterScreen(viewModel: ProductViewModel, navController: NavController) {
                         Row(verticalAlignment = Alignment.CenterVertically) {
                             // Product Image
                             AsyncImage(
-                                model = product.image_url,
-                                contentDescription = product.product_name,
+                                model = item.imageUrl,
+                                contentDescription = item.productName,
                                 modifier = Modifier
                                     .size(150.dp)
                                     .padding(end = 16.dp),
                                 contentScale = ContentScale.Fit
                             )
 
-                            // Column for Product Name and Kcal
+                            // Column for Product Details
                             Column {
                                 Text(
-                                    text = product.product_name,
+                                    text = item.productName,
                                     fontSize = 20.sp,
                                     fontWeight = androidx.compose.ui.text.font.FontWeight.Bold
                                 )
                                 Text(
-                                    text = "Kcal: ${product.nutriments?.energy_kcal_value ?: "Not Available"}",
+                                    text = "Kcal: ${item.kcal ?: "Not Available"}",
                                     fontSize = 16.sp,
                                     color = Color.Gray
                                 )
                                 Text(
-                                    text = "Fat: ${product.nutriments?.fat_100g ?: "Not Available"}",
+                                    text = "Fat: ${item.fat ?: "Not Available"}",
                                     fontSize = 16.sp,
                                     color = Color.Gray
                                 )
                                 Text(
-                                    text = "Sugar: ${product.nutriments?.sugars_100g?: "Not Available"}",
+                                    text = "Sugar: ${item.sugar ?: "Not Available"}",
                                     fontSize = 16.sp,
                                     color = Color.Gray
                                 )
                                 Text(
-                                    text = "Protein: ${product.nutriments?.proteins_value ?: "Not Available"}",
+                                    text = "Protein: ${item.protein ?: "Not Available"}",
                                     fontSize = 16.sp,
                                     color = Color.Gray
                                 )
@@ -113,4 +107,3 @@ fun CounterScreen(viewModel: ProductViewModel, navController: NavController) {
         }
     }
 }
-
