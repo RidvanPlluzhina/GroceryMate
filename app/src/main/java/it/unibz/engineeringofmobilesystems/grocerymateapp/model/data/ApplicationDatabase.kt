@@ -14,7 +14,7 @@ import it.unibz.engineeringofmobilesystems.grocerymateapp.model.Review
     version = 5, // Increment version for schema changes
     exportSchema = false
 )
-abstract class ReviewDatabase : RoomDatabase() {
+abstract class ApplicationDatabase : RoomDatabase() {
     abstract fun reviewDao(): ReviewDao
     abstract fun cartItemDao(): CartItemDao
     abstract fun favoriteItemDao(): FavoriteItemDao
@@ -22,14 +22,14 @@ abstract class ReviewDatabase : RoomDatabase() {
 
     companion object {
         @Volatile
-        private var INSTANCE: ReviewDatabase? = null
+        private var INSTANCE: ApplicationDatabase? = null
 
-        fun getInstance(context: Context): ReviewDatabase {
+        fun getInstance(context: Context): ApplicationDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                    ReviewDatabase::class.java,
-                    "review_database"
+                    ApplicationDatabase::class.java,
+                    "application_database"
                 )
                     .fallbackToDestructiveMigration()
                     .build()

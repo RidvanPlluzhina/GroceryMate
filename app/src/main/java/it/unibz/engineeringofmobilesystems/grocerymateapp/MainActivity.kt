@@ -4,13 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
-import it.unibz.engineeringofmobilesystems.grocerymateapp.model.data.ReviewDatabase
+import it.unibz.engineeringofmobilesystems.grocerymateapp.model.data.ApplicationDatabase
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.*
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.cart.CartScreen
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.cart.CounterScreen
@@ -27,11 +26,11 @@ import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ProductViewM
 
 class MainActivity : ComponentActivity() {
 
-    private val reviewDatabase by lazy {
+    private val applicationDatabase  by lazy {
         Room.databaseBuilder(
             applicationContext,
-            ReviewDatabase::class.java,
-            "review_database"
+            ApplicationDatabase::class.java,
+            "application_database"
         )
             .fallbackToDestructiveMigration()
             .build()
@@ -42,7 +41,7 @@ class MainActivity : ComponentActivity() {
             this,
             object : ViewModelProvider.Factory {
                 override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
-                    return ReviewViewModel(reviewDatabase.reviewDao()) as T
+                    return ReviewViewModel(applicationDatabase.reviewDao()) as T
                 }
             }
         )[ReviewViewModel::class.java]
@@ -54,9 +53,9 @@ class MainActivity : ComponentActivity() {
             object : ViewModelProvider.Factory {
                 override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
                     return ProductViewModel(
-                        cartItemDao = reviewDatabase.cartItemDao(),
-                        favoriteItemDao = reviewDatabase.favoriteItemDao(),
-                        counterItemDao = reviewDatabase.counterItemDao()
+                        cartItemDao = applicationDatabase.cartItemDao(),
+                        favoriteItemDao = applicationDatabase.favoriteItemDao(),
+                        counterItemDao = applicationDatabase.counterItemDao()
                     ) as T
                 }
             }
