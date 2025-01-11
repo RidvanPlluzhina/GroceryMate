@@ -21,7 +21,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.layout.ContentScale
 import coil.compose.AsyncImage
 import it.unibz.engineeringofmobilesystems.grocerymateapp.R
-import it.unibz.engineeringofmobilesystems.grocerymateapp.model.FavoriteItem
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.BottomNavigationBar
 import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ProductViewModel
 
@@ -85,6 +84,7 @@ fun FavouritesScreen(viewModel: ProductViewModel, navController: NavController) 
                                     .size(40.dp)
                                     .padding(end = 16.dp)
                                     .clickable {
+                                        // Add to Cart method
                                         viewModel.addToCart(
                                             it.unibz.engineeringofmobilesystems.grocerymateapp.model.Product(
                                                 product_name = favoriteItem.productName,
@@ -94,15 +94,22 @@ fun FavouritesScreen(viewModel: ProductViewModel, navController: NavController) 
                                                 nutriments = null
                                             )
                                         )
-//                                        viewModel.addToCounter(
-//                                            it.unibz.engineeringofmobilesystems.grocerymateapp.model.Product(
-//                                                product_name = favoriteItem.productName,
-//                                                image_url = favoriteItem.imageUrl,
-//                                                quantity = favoriteItem.quantity,
-//                                                brands = null,
-//                                                nutriments = null
-//                                            )
-//                                        )
+
+                                        // Add to Counter method
+                                        viewModel.addToCounter(
+                                            it.unibz.engineeringofmobilesystems.grocerymateapp.model.Product(
+                                                product_name = favoriteItem.productName,
+                                                image_url = favoriteItem.imageUrl,
+                                                quantity = favoriteItem.quantity,
+                                                brands = null,
+                                                nutriments = it.unibz.engineeringofmobilesystems.grocerymateapp.model.Nutriments(
+                                                    energy_kcal_value = favoriteItem.kcal,
+                                                    fat_100g = favoriteItem.fat,
+                                                    sugars_100g = favoriteItem.sugar,
+                                                    proteins_value = favoriteItem.protein
+                                                )
+                                            )
+                                        )
                                     },
                                 tint = Color.Black
                             )
@@ -134,3 +141,4 @@ fun FavouritesScreen(viewModel: ProductViewModel, navController: NavController) 
         }
     }
 }
+

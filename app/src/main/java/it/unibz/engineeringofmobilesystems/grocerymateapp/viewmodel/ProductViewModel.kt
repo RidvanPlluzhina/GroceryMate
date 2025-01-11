@@ -83,8 +83,11 @@ class ProductViewModel(
                 productName = product.product_name,
                 imageUrl = product.image_url,
                 quantity = product.quantity,
-                price = null // if in the future the api will prvide price we have it ready
-
+                price = null,
+                kcal = product.nutriments?.energy_kcal_value,
+                fat = product.nutriments?.fat_100g,
+                sugar = product.nutriments?.sugars_100g,
+                protein = product.nutriments?.proteins_value
             )
             favoriteItemDao.insertFavoriteItem(favoriteItem)
         }

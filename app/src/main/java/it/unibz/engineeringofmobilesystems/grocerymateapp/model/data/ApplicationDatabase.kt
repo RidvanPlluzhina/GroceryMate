@@ -11,7 +11,7 @@ import it.unibz.engineeringofmobilesystems.grocerymateapp.model.Review
 
 @Database(
     entities = [Review::class, CartItem::class, FavoriteItem::class, CounterItem::class],
-    version = 5, // Increment version for schema changes
+    version = 7, // Increment version for schema changes
     exportSchema = false
 )
 abstract class ApplicationDatabase : RoomDatabase() {
