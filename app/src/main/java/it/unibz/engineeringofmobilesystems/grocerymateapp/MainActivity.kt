@@ -4,13 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
-import it.unibz.engineeringofmobilesystems.grocerymateapp.model.data.ReviewDatabase
+import it.unibz.engineeringofmobilesystems.grocerymateapp.model.data.ApplicationDatabase
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.*
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.cart.CartScreen
 import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.cart.CounterScreen
@@ -27,11 +26,11 @@ import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ProductViewM
 
 class MainActivity : ComponentActivity() {
 
-    private val reviewDatabase by lazy {
+    private val applicationDatabase  by lazy {
         Room.databaseBuilder(
             applicationContext,
-            ReviewDatabase::class.java,
-            "review_database"
+            ApplicationDatabase::class.java,
+            "application_database"
         )
             .fallbackToDestructiveMigration()
             .build()
@@ -42,28 +41,42 @@ class MainActivity : ComponentActivity() {
             this,
             object : ViewModelProvider.Factory {
                 override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
-                    return ReviewViewModel(reviewDatabase.reviewDao()) as T
+                    return ReviewViewModel(applicationDatabase.reviewDao()) as T
                 }
             }
         )[ReviewViewModel::class.java]
+    }
+
+    private val productViewModel by lazy {
+        ViewModelProvider(
+            this,
+            object : ViewModelProvider.Factory {
+                override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
+                    return ProductViewModel(
+                        cartItemDao = applicationDatabase.cartItemDao(),
+                        favoriteItemDao = applicationDatabase.favoriteItemDao(),
+                        counterItemDao = applicationDatabase.counterItemDao()
+                    ) as T
+                }
+            }
+        )[ProductViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             val navController: NavHostController = rememberNavController()
-            val viewModel: ProductViewModel = viewModel()
 
             NavHost(navController = navController, startDestination = "home") {
                 composable("home") { HomeScreen(navController) }
-                composable("drinks") { DrinksScreen(viewModel, navController) }
-                composable("bio products") { BioProductScreen(viewModel, navController) }
-                composable("milk products") { MilkProductScreen(viewModel, navController) }
-                composable("sweets") { SweetsScreen(viewModel, navController) }
-                composable("snacks") { SnackProductScreen(viewModel, navController) }
-                composable("cart") { CartScreen(viewModel, navController) }
-                composable("favourites") { FavouritesScreen(viewModel, navController) }
-                composable("counter") { CounterScreen(viewModel, navController) }
+                composable("drinks") { DrinksScreen(productViewModel, navController) }
+                composable("bio products") { BioProductScreen(productViewModel, navController) }
+                composable("milk products") { MilkProductScreen(productViewModel, navController) }
+                composable("sweets") { SweetsScreen(productViewModel, navController) }
+                composable("snacks") { SnackProductScreen(productViewModel, navController) }
+                composable("cart") { CartScreen(productViewModel, navController) }
+                composable("favourites") { FavouritesScreen(productViewModel, navController) }
+                composable("counter") { CounterScreen(productViewModel, navController) }
                 composable("reviews") {
                     ReviewsScreen(navController = navController, viewModel = reviewViewModel)
                 }
