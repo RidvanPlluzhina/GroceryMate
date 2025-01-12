@@ -1,13 +1,13 @@
-# Grocery Mate
+# 🛒Grocery Mate
 
 **Project Overview**  
 Grocery Mate is an Android application developed as part of the *Engineering of Mobile Systems* course under the supervision of Professor **Niccolò Pretto** at the *Free University of Bozen-Bolzano*. The app aims to assist users in managing their groceries with an intuitive interface, personalized lists, and other user-friendly features.
 
 ---
 
-## Features
+## ✨Features
 
-### 1. Categorized Product Display
+### 1. 🗂Categorized Product Display
 - Products are fetched using the **Open Food Facts API** and displayed in categories like:
   - **Drinks**
   - **Sweets**
@@ -15,68 +15,67 @@ Grocery Mate is an Android application developed as part of the *Engineering of 
   - **Milk Products**
   - **Bio Products**
 
-### 2. Shopping Cart
+### 2. 🛍️Shopping Cart
 - Users can add products to a **virtual cart** for easy tracking of their grocery lists.
 - Products in the cart can be **reviewed or removed**.
 
-### 3. Favorite Products
+### 3. ❤️Favorite Products
 - Users can save their favorite products for future reference in the **Favourites** section.
 
-### 4. Calorie Counter
+### 4. 🍎Calorie Counter
 - Displays **nutritional information** such as:
-  - **Calories**
-  - **Sugar**
-  - **Protein**
-  - **Fat**
+  - 🔥 **Calories**
+  - 🍬 **Sugar**
+  - 🥩 **Protein**
+  - 🧈 **Fat**
 - Provides a **summary of calories** and nutrients for selected items.
 
-### 5. Reviews
+### 5. ✍️Reviews
 - Users can write, save, and view reviews for various products.
 
 ---
 
-## Technical Details
+## 🛠️Technical Details
 
-### 1. App Architecture
+### 1. 🏛️App Architecture
 - Implements the **MVVM Architecture**:
   - **Model**: Room Database (local data persistence)
   - **View**: Jetpack Compose UI components
   - **ViewModel**: Manages app state and logic
 
-### 2. Internal Database
+### 2. 📂Internal Database
 - **Room** is used for managing:
-  - Shopping cart data
-  - Favorite items
-  - Product reviews
+- 🛒 Shopping cart
+- ❤️ Favorite items
+- 📝 Product reviews
 
-### 3. REST API Integration
+### 3. 🌐REST API Integration
 - The app uses the **Open Food Facts API** to fetch data about products based on their **barcode**.  
   **API Documentation**: [Open Food Facts API](https://world.openfoodfacts.org/)
 
 ### 4. Navigation
 - Implements **Jetpack Navigation** for seamless transitions between screens:
-  - **Home**
-  - **Drinks**
-  - **Sweets**
-  - **Cart**
-  - **Favourites**
-  - **Reviews**
+  - 🏠 **Home**
+  - 🥤 **Drinks**
+  - 🍫 **Sweets**
+  - 🛍️ **Cart**
+  - ❤️ **Favourites**
+  - ✍️ **Reviews**
 
-### 5. Design
+### 5. 🎨Design
 - Follows **Material Design Guidelines**:
-  - Optimized for screens of various sizes
   - Consistent UI elements
   - Intuitive navigation and layout
 
 ---
-## Installation & Setup
+## 🧰Installation & Setup
 
-### Prerequisites
+### ✅Prerequisites
 - Android Studio (latest version recommended)
 - Kotlin support
 - Internet connection for API calls
 
-### Steps
+### 🚀Steps
 1. Clone the repository:
    ```bash
    git clone https://gitlab.inf.unibz.it/2324-engineeringofmobilesystems/plluzhina_ridvan-grocery-mate.git
@@ -85,7 +84,7 @@ Grocery Mate is an Android application developed as part of the *Engineering of 
 3. Build and run the app on an emulator or a physical device.
 ---
 
-## How to Use
+## 🖥️How to Use
 
 - Navigate through different categories like **Drinks**, **Snacks**, and more.
 - Add items to your **Cart** or save them as **Favorites**.
@@ -94,7 +93,7 @@ Grocery Mate is an Android application developed as part of the *Engineering of 
 
 ---
 
-## App Architecture Overview
+## 📁App Architecture Overview
 
 ### Folder Structure
 - **model**: Contains data models and database classes.
@@ -103,34 +102,34 @@ Grocery Mate is an Android application developed as part of the *Engineering of 
 - **viewmodel**: ViewModels managing app logic and state.
 
 ### Key Technologies Used
-- **Jetpack Compose**: Modern UI toolkit.
-- **Room Database**: Local storage for user data.
-- **Retrofit**: REST API integration.
-- **Kotlin**: Main programming language.
+- ** 🖌️Jetpack Compose**: Modern UI toolkit.
+- ** 🗂️Room Database**: Local storage for user data.
+- ** 🌐Retrofit**: REST API integration.
+- ** ☕Kotlin**: Main programming language.
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 *(Add screenshots or mockups here if available)*
 
 ---
 
-## Current Status
+## 📅Current Status
 
 - The project is **ongoing**.
-- Planned features and enhancements will be added iteratively.
+- Waiting to be submitted for evaluation.
 
 ---
 
-## Contributor
+## 🙋Contributor
 
 **Ridvan Plluzhina**  
 Student at the Faculty of Engineering, Free University of Bozen-Bolzano.
 
 ---
 
-## Requirements Checklist
+## ✅Requirements Checklist
 
 - ✅ App Architecture (ViewModel, Room Database, etc.)
 - ✅ Material Design with Jetpack Compose
@@ -142,6 +141,6 @@ Student at the Faculty of Engineering, Free University of Bozen-Bolzano.
 
 ---
 
-## Acknowledgments
+## 🙏Acknowledgments
 
 Special thanks to **Professor Niccolò Pretto** for guidance and support throughout the project.
