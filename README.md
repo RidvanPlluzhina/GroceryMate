@@ -101,7 +101,7 @@ Grocery Mate is an Android application developed as part of the *Engineering of 
 - **userinterface**: UI components and screen implementations.
 - **viewmodel**: ViewModels managing app logic and state.
 
-### Key Technologies Used
+### ⚙️Key Technologies Used
 - ** 🖌️Jetpack Compose**: Modern UI toolkit.
 - ** 🗂️Room Database**: Local storage for user data.
 - ** 🌐Retrofit**: REST API integration.
@@ -109,16 +109,17 @@ Grocery Mate is an Android application developed as part of the *Engineering of 
 
 ---
 
-## 📸 Screenshots
-
-*(Add screenshots or mockups here if available)*
+## 📄Documentation
+The following project documentation is included in the repository:
+- 📄Report: A detailed explanation of the app’s architecture, features, and implementation.
+- 📊Presentation Slides: A concise visual overview of the project. Both files are located in the Documentation folder.
 
 ---
 
 ## 📅Current Status
 
-- The project is **ongoing**.
-- Waiting to be submitted for evaluation.
+- Project Deadline (Report and Presentation): **22nd January**
+- Project Demo and Presentation: **29th January**
 
 ---
 
