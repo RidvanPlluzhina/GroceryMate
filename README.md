@@ -1,6 +1,5 @@
 # 🛒Grocery Mate
 
-**Project Overview**  
 Grocery Mate is an Android application developed as part of the *Engineering of Mobile Systems* course under the supervision of Professor **Niccolò Pretto** at the *Free University of Bozen-Bolzano*. The app aims to assist users in managing their groceries with an intuitive interface, personalized lists, and other user-friendly features.
 
 ---
