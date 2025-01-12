@@ -26,7 +26,8 @@ fun DrinksScreen(viewModel: ProductViewModel = viewModel(), navController: NavCo
     LaunchedEffect(Unit) {
         viewModel.fetchProductsByBarcodes(
             listOf( "3268840001008","3274080005003","7613035833272","8002270014901", "3179732333919","5060337501316"
-                , "9002490205973", "90162800","3502110000651","54491069")
+                , "9002490205973", "90162800","3502110000651","54491069","5449000006004",
+                "40822938","3502110006240","3564700716519","5000436882763","3560070478637")
         )
     }
     Box(modifier = Modifier
