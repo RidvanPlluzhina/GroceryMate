@@ -61,6 +61,9 @@ Grocery Mate is an Android application developed as part of the *Engineering of 
   - ❤️ **Favourites**
   - ✍️ **Reviews**
 
+- Navigation Rail: Added a Navigation Rail for the Reviews screen to optimize usability on larger devices. 
+- The Navigation Rail allows quick access to other sections of the app, maintaining a clean and intuitive layout.
+
 ### 5. 🎨Design
 - Follows **Material Design Guidelines**:
   - Consistent UI elements
