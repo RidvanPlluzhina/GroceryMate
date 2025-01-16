@@ -18,6 +18,7 @@ import it.unibz.engineeringofmobilesystems.grocerymateapp.R
 import it.unibz.engineeringofmobilesystems.grocerymateapp.model.Review
 import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ReviewViewModel
 
+// Composable fun for the whole screen containing nav rail, button and review item.
 @Composable
 fun ReviewsScreen(navController: NavController, viewModel: ReviewViewModel) {
     val reviews by viewModel.reviews.collectAsState()
@@ -95,7 +96,7 @@ fun ReviewsScreen(navController: NavController, viewModel: ReviewViewModel) {
         }
     }
 }
-
+// composable fun where the review is placed.
 @Composable
 fun ReviewItem(review: Review, onRemove: () -> Unit) {
     Box(

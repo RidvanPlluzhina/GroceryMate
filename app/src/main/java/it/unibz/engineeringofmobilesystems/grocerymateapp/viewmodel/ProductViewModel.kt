@@ -16,26 +16,33 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class ProductViewModel(
-    private val cartItemDao: CartItemDao,
-    private val favoriteItemDao: FavoriteItemDao,
-    private val counterItemDao: CounterItemDao
-) : ViewModel() {
+    private val cartItemDao: CartItemDao, // DAO for managing cart items in the database
+    private val favoriteItemDao: FavoriteItemDao, // DAO for managing favorite items in the database
+    private val counterItemDao: CounterItemDao  // DAO for managing counter items in the database
+) : ViewModel() { // Extends ViewModel
 
-    // State flows for products, cart items, favorite items, and counter items
+    // Holds a list of products
     private val _products = MutableStateFlow<List<Product>>(emptyList())
+    // Public immutable flow for observing products
     val products: StateFlow<List<Product>> = _products
 
+    // Holds cart items
     private val _cartItems = MutableStateFlow<List<CartItem>>(emptyList())
+    // Exposed as an immutable flow
     val cartItems: StateFlow<List<CartItem>> = _cartItems.asStateFlow()
 
+    // Holds favorite items
     private val _favoriteItems = MutableStateFlow<List<FavoriteItem>>(emptyList())
+    // Exposed as an immutable flow
     val favoriteItems: StateFlow<List<FavoriteItem>> = _favoriteItems.asStateFlow()
 
+    // Holds counter items
     private val _counterItems = MutableStateFlow<List<CounterItem>>(emptyList())
+    // Exposed as an immutable flow
     val counterItems: StateFlow<List<CounterItem>> = _counterItems.asStateFlow()
 
     init {
-        // Cart Items from the database
+        // Load all cart items and update the StateFlow
         viewModelScope.launch {
             cartItemDao.getAllCartItems().collect { _cartItems.value = it }
         }
@@ -51,6 +58,7 @@ class ProductViewModel(
         }
     }
 
+    // fun to add to cart products
     fun addToCart(product: Product) {
         viewModelScope.launch {
             val cartItem = CartItem(
@@ -63,6 +71,7 @@ class ProductViewModel(
         }
     }
 
+    //fun to remove items from cart or products
     fun removeFromCart(cartItem: CartItem) {
         viewModelScope.launch {
             // Remove from cart
@@ -92,7 +101,7 @@ class ProductViewModel(
             favoriteItemDao.insertFavoriteItem(favoriteItem)
         }
     }
-
+    // fun to delete from favorites
     fun removeFromFavorites(favoriteItem: FavoriteItem) {
         viewModelScope.launch {
             favoriteItemDao.deleteFavoriteItem(favoriteItem)
@@ -114,7 +123,7 @@ class ProductViewModel(
         }
     }
 
-
+    //fun to remove from counter
     fun removeFromCounter(counterItem: CounterItem) {
         viewModelScope.launch {
             counterItemDao.deleteCounterItem(counterItem)

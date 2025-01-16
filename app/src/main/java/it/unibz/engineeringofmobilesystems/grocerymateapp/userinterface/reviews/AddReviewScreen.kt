@@ -15,6 +15,8 @@ import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ReviewViewMo
 
 @Composable
 fun AddReviewScreen(navController: NavController, viewModel: ReviewViewModel) {
+
+    // Three mutable state variables to hold user input:
     var title by remember { mutableStateOf("") }
     var description by remember { mutableStateOf("") }
     var description2 by remember { mutableStateOf(0) }
@@ -53,10 +55,12 @@ fun AddReviewScreen(navController: NavController, viewModel: ReviewViewModel) {
                 text = "Choose a Number (1-5): $description2",
                 modifier = Modifier.padding(vertical = 8.dp)
             )
+            // UI component which allows us to select a numeric value by sliding the thumb in a range.
             Slider(
                 value = description2.toFloat(),
                 onValueChange = { description2 = it.toInt() },
                 valueRange = 1f..5f,
+                // 3 intermediate steps
                 steps = 3,
                 modifier = Modifier.padding(vertical = 8.dp)
             )

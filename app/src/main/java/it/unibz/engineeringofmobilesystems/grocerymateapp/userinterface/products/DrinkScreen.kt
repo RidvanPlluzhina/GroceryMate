@@ -20,11 +20,13 @@ import it.unibz.engineeringofmobilesystems.grocerymateapp.userinterface.ProductD
 
 @Composable
 fun DrinksScreen(viewModel: ProductViewModel = viewModel(), navController: NavController) {
+
+    // Observes the products flow from the viewModel and converts it into a state.
     val products by viewModel.products.collectAsState()
 
-    // Fetch products when the screen loads
-    LaunchedEffect(Unit) {
-        viewModel.fetchProductsByBarcodes(
+    // Executes a one-time side effect when the screen is loaded.
+    LaunchedEffect(Unit) { // Ensures this block runs only once when the composable is first added to the composition.
+        viewModel.fetchProductsByBarcodes( // fetches product data for a predefined list of barcodes.
             listOf( "3268840001008","3274080005003","7613035833272","8002270014901", "3179732333919","5060337501316"
                 , "9002490205973", "90162800","3502110000651","54491069","5449000006004",
                 "40822938","3502110006240","3564700716519","5000436882763","3560070478637")
@@ -37,6 +39,7 @@ fun DrinksScreen(viewModel: ProductViewModel = viewModel(), navController: NavCo
                 .fillMaxSize()
                 .padding(bottom = 100.dp)
         ) {
+            // Iterates over the products list and displays each product.
             items(products) { product ->
                 ProductDetails(product, viewModel)
                 Spacer(modifier = Modifier.height(30.dp))

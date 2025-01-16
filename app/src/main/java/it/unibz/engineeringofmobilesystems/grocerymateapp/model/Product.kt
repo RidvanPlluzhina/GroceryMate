@@ -8,6 +8,7 @@ data class FoodResponse(
 
 // https://world.openfoodfacts.org/api/v0/product/{barcode here}.json
 
+// Represents the details of a single product in the API response.
 data class Product(
     val product_name: String,
     val image_url: String?,
@@ -16,8 +17,8 @@ data class Product(
     val nutriments: Nutriments?
 )
 
-// Declared energy_kcal_value as part of nutriments
-data class Nutriments(
+// Represents the nutritional information of a product.
+    data class Nutriments(
     @SerializedName("energy-kcal_value") val energy_kcal_value: Float?,
     val fat_100g: Float?,
     val sugars_100g: Float?,

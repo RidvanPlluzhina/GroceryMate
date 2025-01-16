@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import it.unibz.engineeringofmobilesystems.grocerymateapp.R
 
+// Composable fun for showing the category of each product and the starting point of the app as well
 @Composable
 fun HomeScreen(navController: NavController) {
     val categories = listOf(
@@ -62,6 +63,7 @@ fun HomeScreen(navController: NavController) {
     }
 }
 
+// Composable fun for header bar title of the app
 @Composable
 fun HeaderBar(title: String, navController: NavController) {
     Row(
@@ -73,18 +75,10 @@ fun HeaderBar(title: String, navController: NavController) {
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(text = title, color = Color.White, fontSize = 25.sp)
-//        Icon(
-//            painter = painterResource(id = R.drawable.review),
-//            contentDescription = "Location Icon",
-//            tint = Color.White,
-//            modifier = Modifier.size(30.dp).clickable {
-//                navController.navigate("reviews")
-//          }
-//       )
     }
 }
 
-
+// Bottom navigation bar placed at the end of the screen with other icons
 @Composable
 fun BottomNavigationBar(navController: NavController) {
     Row(
@@ -120,7 +114,7 @@ fun BottomNavigationBar(navController: NavController) {
         )
     }
 }
-
+// Items placed in the navigation
 @Composable
 fun BottomNavigationItem(
     iconRes: Int,
@@ -147,7 +141,7 @@ fun BottomNavigationItem(
         )
     }
 }
-
+// Fun for each category including main parts of the products img, title ...
 @Composable
 fun CategoryCard(name: String, imageRes: Int, onClick: () -> Unit) {
     Row(

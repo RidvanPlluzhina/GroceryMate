@@ -20,6 +20,7 @@ import it.unibz.engineeringofmobilesystems.grocerymateapp.R
 import it.unibz.engineeringofmobilesystems.grocerymateapp.viewmodel.ProductViewModel
 
 
+// composable function which holds the details for each fetched product
 @Composable
 fun ProductDetails(product: Product, viewModel: ProductViewModel) {
     Box(
@@ -82,16 +83,6 @@ fun ProductDetails(product: Product, viewModel: ProductViewModel) {
                 fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
                 fontSize = 16.sp
             )
-//            Text(
-//                text = "Brand: ${product.brands}",
-//                fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-//                fontSize = 16.sp
-//            )
-//            Text(
-//                text = "Energy (kcal): ${product.nutriments?.energy_kcal_value ?: "Not Available"}",
-//                fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-//                fontSize = 16.sp
-//            )
         }
     }
 }
